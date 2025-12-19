@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PainSketch schema v1.0",
+  "type": "object",
+  "required": ["v","id","w","h","coord","s"],
+  "properties": {
+    "v":    { "type":"integer", "const": 2 },
+    "id":   { "type":"string", "minLength":1 },
+    "w":    { "type":"integer", "minimum":1, "description":"canvas width px" },
+    "h":    { "type":"integer", "minimum":1, "description":"canvas height px" },
+    "coord":{"type":"string", "enum":["px"], "description":"encoding of s[].p" },
+    "tpl":  { "type":"string" },
+    "view": { "type":"string", "enum":["A","P","L","R"] },
+    "app":  { "type":"string" },
+    "ts":   { "type":"string", "format":"date-time" },
+    "crc":  { "type":"integer", "minimum":0 },
+    "pal":  {
+      "type":"array",
+      "items": { "type":"string", "pattern":"^#?[0-9A-Fa-f]{6}$" }
+    },
+    "s": {
+      "type":"array",
+      "minItems":1,
+      "items": {
+        "type":"object",
+        "required": ["i","q","t","bw","c","a","p"],
+        "properties": {
+          "i":   { "type":"integer", "minimum":1 },
+          "q":   { "type":"integer", "minimum":1 },
+          "t":   { "type":"string", "enum":["pen","spray","eraser"] },
+          "bw":  { "type":"number",  "minimum":0 },
+          "c":   { "oneOf":[ { "type":"integer","minimum":0 }, { "type":"string","pattern":"^#?[0-9A-Fa-f]{6}$" } ] },
+          "a":   { "type":"integer","minimum":0,"maximum":255 },
+          "pr":  { "type":"integer","minimum":0 },
+          "pd":  { "type":"number", "minimum":0 },
+          "seed":{ "type":"integer" },
+          "comp":{ "type":"string", "enum":["source-over","destination-out"] },
+
+          "p": {
+            "type":"array", "minItems":2,
+            "items": {
+              "type":"array", "minItems":2, "maxItems":2,
+              "prefixItems":[
+                { "type":"integer","minimum":0 },
+                { "type":"integer","minimum":0 }
+              ],
+              "items": false
+            }
+          }
+        },
+        "allOf": [
+          { "if": { "properties": { "t": { "const":"spray" } } }, "then": { "required": ["pr","pd"] } }
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
+

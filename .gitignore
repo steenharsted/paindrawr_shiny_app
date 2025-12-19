@@ -1,0 +1,18 @@
+# R
+.RData
+.Rhistory
+.Rproj.user/
+*.Rproj
+.Renviron
+storage/*
+!storage/.gitkeep
+*.tmp
+help_developer
+
+# Deployment credentials
+rsconnect/
+*.dcf
+
+# System
+.DS_Store
+Thumbs.db

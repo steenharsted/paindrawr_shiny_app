@@ -1,0 +1,24 @@
+Package: paindrawr
+Type: Application
+Title: Pain Drawing Shiny Application
+Author: Steen Harsted <sharsted@health.sdu.dk>
+Maintainer: Steen Harsted <sharsted@health.sdu.dk>
+Version: 0.2.0
+Description: Interactive canvas-based application for drawing and recording pain locations
+    with touch/pointer support, multiple drawing tools, and data export capabilities.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: 
+    R (>= 3.5.0)
+Imports:
+    shiny,
+    shinyWidgets,
+    shinyvalidate,
+    bslib,
+    here,
+    jsonlite,
+    base64enc,
+    zip,
+    jsonvalidate,
+    rlang,
+    glue
