@@ -7,7 +7,6 @@
 
 A Shiny application demonstrating an interactive pain drawing tool.
 
-**Live demo:** https://shinylab.sdu.dk/paindrawr/
 
 ## About
 
