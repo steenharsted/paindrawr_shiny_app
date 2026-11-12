@@ -1,5 +1,10 @@
 # PainDrawR
 
+> **This project is retired and kept for historical reasons only.**
+> Its direct successor is [paindraw_shiny](https://github.com/steenharsted/paindraw_shiny). Please use that instead.
+>
+> Note: [paindrawr](https://github.com/steenharsted/paindrawr) is a separate R package for analysing pain drawing data.
+
 A Shiny application demonstrating an interactive pain drawing tool.
 
 **Live demo:** https://shinylab.sdu.dk/paindrawr/
@@ -21,6 +26,7 @@ This project provides a complete example of building a pain drawing application 
 install.packages(c(
     "shiny", "shinyWidgets", "shinyvalidate", "bslib", "here", 
     "jsonlite", "base64enc", "zip", "jsonvalidate", "rlang"))
+```
 
 ## Usage
 
